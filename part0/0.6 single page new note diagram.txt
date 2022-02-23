@@ -1,0 +1,32 @@
+title Single page APP: new note
+
+Browser->Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa
+Server->Browser: HTML code
+Browser->Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+Server->Browser: main.css
+Browser->Server: https://studies.cs.helsinki.fi/exampleapp/spa.js
+Server->Browser: spa.js
+
+note over Browser
+browser start executing Js-code
+that request the Json from the server
+end note
+
+Browser->Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+Server->Browser: {content: "koi zaroorat nahi Study ki XD", date: "2022-02-23T13:08:24.037Z"}
+
+note over Browser
+browser executes redrawNotes()
+rendering note from data.json to display
+end note 
+
+note over Browser
+user enters text and click save
+the note is added to the list.
+The POST request to the address new_note_spa contains the new note 
+as JSON-data containing both the content of the note (content) 
+and the timestamp (date)
+end note
+
+Browser->Server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+Server->Browser: status code 201 created

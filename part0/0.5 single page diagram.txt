@@ -1,0 +1,21 @@
+title Single Page app over Browser
+
+Browser->Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa
+Server->Browser: HTML code
+Browser->Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+Server->Browser: main.css
+Browser->Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+Server->Browser: spa.js
+
+note over Browser
+Browser starts executing the Js-code
+that request the JSON data from server 
+end note
+
+Browser->Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+Server->Browser: [{"content": "HI","date": "2022-02-23T12:25:50.440Z"}]
+
+note over Browser:
+browser executes the event handler redrawNotes 
+that renders notes from json.dota to display
+end note
